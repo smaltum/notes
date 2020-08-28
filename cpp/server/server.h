@@ -18,7 +18,6 @@ namespace st
      * 信号处理的方式: 忽略、捕获、默认处理
      * linux下的信号： man 7 signal
      * 
-     * 
      * man中文手册安装:
      * 1.安装依赖库和工具
      * 2.下载、编译、安装man中文手册
@@ -36,9 +35,12 @@ namespace st
      * 
      * 3.SIGALRM: 定时器信号、以秒未单位 默认终止进程
      * 
-     * 4.SIGUSR1/SIGUSR2: 自定义 默认终止进程
+     * 4.SIGUSR1 SIGUSR2: 自定义 默认终止进程
+     * 
      * 5.SIGINT: 键盘输入的退出信号
+     * 
      * 6.SIGQUIT: 键盘输入的退出信号
+     * 
      * 7.SIGHUP: 控制终端的挂起信号
      * 
      * 
@@ -47,7 +49,7 @@ namespace st
      * 2.软件方式: kill api
      * 3.安装信号
      *      简单方式：
-     *          signal(int sig,void (func *)(int) );
+     *          signal(int sig,void (func *)(int));
      *  
      *      高级方式：
      *          int sigaction(int sig,const struct sigaction* act, struct sigaction* oact );
