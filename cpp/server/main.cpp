@@ -86,8 +86,19 @@ int testSigAction()
     return 1;
 }
 
-void daemonize()
+//测试fork
+int testFork()
 {
+    //fork include <unistd.h>
+    //setsid include <stdlib.h>
+
+    /**
+     * fork 步骤:
+     *  1.fork 一个子进程 父进程推出 子进程成为孤儿进程  被 init（ 进程号 1 ） 接管
+     *  2.调用 setid 建立新的回话进程
+     *  3.将当前工作目录切换到工作目录
+     *  4.将标准输入 输出 出错 重定向 到 /dev/null 下
+     */
     int fd;
     pid_t pid; //
     if ((pid = fork()) < 0)
@@ -102,7 +113,7 @@ void daemonize()
         }
     }
 
-    setsid();
+    setsid(); //建立新的会话
 
     if (chdir("/") < 0)
     {
@@ -116,24 +127,6 @@ void daemonize()
     dup2(fd, STDIN_FILENO);
     dup2(fd, STDOUT_FILENO);
     dup2(fd, STDERR_FILENO);
-
-    return;
-}
-
-//测试fork
-int testFork()
-{
-    //fork include <unistd.h>
-    //setsid include <stdlib.h>
-
-    /**
-     * fork 步骤:
-     *  1.fork 一个子进程 父进程推出 子进程成为孤儿进程  被 init（ 进程号 1 ） 接管
-     *  2.调用 setid 建立新的回话进程
-     *  3.将当前工作目录切换到工作目录
-     *  4.将标准输入 输出 出错 重定向 到 /dev/null 下
-     */
-    daemonize();
     while (1)
     {
         sleep(1);
