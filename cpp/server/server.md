@@ -24,3 +24,5 @@
 - setitimer
 
 ### 实时信号
+
+https://www.cnblogs.com/tp-16b/p/8955462.html
