@@ -1,3 +1,7 @@
+u_server: udp_server
+u_server.out: udp_server.cpp
+	clang++ -c udp_server.cpp -o udp_server.out
+
 s_client: s_client
 s_client.out: s_client.cpp
 	clang++ -c s_client.cpp -o s_client.out

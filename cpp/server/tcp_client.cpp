@@ -5,7 +5,6 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 /**
- * 
  *  client 基本流程
  *  socket                    -> connect ->send -> recv -> close
  */
