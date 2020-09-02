@@ -27,7 +27,7 @@ int testDaemon();
 
 int main(int argc, char *argv[])
 {
-    return testDaemon();
+    return testSignal();
 }
 
 //测试服务

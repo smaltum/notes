@@ -10,7 +10,6 @@
 
 namespace st
 {
-
     Server::Server()
     {
         std::cout << "Server()" << std::endl;
